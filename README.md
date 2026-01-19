@@ -40,6 +40,40 @@ Satellite antenna rotor controller for Raspberry Pi Pico W with dual-axis (azimu
 
 ## Installation
 
+### Option 1: Using Thonny (Windows - Recommended for beginners)
+
+1. Download and install Thonny from https://thonny.org/
+
+2. Connect your Pico W to USB while holding the BOOTSEL button
+
+3. In Thonny, go to **Tools → Options → Interpreter**:
+   - Select "MicroPython (Raspberry Pi Pico)"
+   - Click "Install or update MicroPython"
+   - Select your Pico and install the latest version
+   - Click OK
+
+4. Create the WiFi configuration file:
+   - In Thonny, go to **File → New**
+   - Paste this content (edit with your WiFi details):
+     ```json
+     {
+         "wifi_ssid": "YourNetworkName",
+         "wifi_password": "YourPassword"
+     }
+     ```
+   - Go to **File → Save as...**
+   - Select "Raspberry Pi Pico" in the dialog
+   - Save as `settings.json`
+
+5. Upload all firmware files:
+   - Open each `.py` file from this project in Thonny
+   - For each file: **File → Save as...** → Select "Raspberry Pi Pico" → Save with the same filename
+   - Upload these files: `settings.py`, `motors.py`, `position.py`, `controller.py`, `rotctld.py`, `webserver.py`, `main.py`
+
+6. Reset the Pico (unplug and replug USB). View the IP address in Thonny's Shell panel.
+
+### Option 2: Using mpremote (Linux/macOS/Windows command line)
+
 1. Install MicroPython on your Pico W (if not already installed):
    - Download from https://micropython.org/download/RPI_PICO_W/
    - Hold BOOTSEL button while connecting USB
@@ -47,7 +81,7 @@ Satellite antenna rotor controller for Raspberry Pi Pico W with dual-axis (azimu
 
 2. Copy all `.py` files to the Pico:
    ```bash
-   # Using mpremote (pip install mpremote)
+   # Install mpremote first: pip install mpremote
    mpremote cp settings.py motors.py position.py controller.py rotctld.py webserver.py main.py :
    ```
 

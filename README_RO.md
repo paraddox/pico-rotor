@@ -40,6 +40,40 @@ Controller pentru rotor de antenă satelit cu Raspberry Pi Pico W, cu suport pen
 
 ## Instalare
 
+### Opțiunea 1: Folosind Thonny (Windows - Recomandat pentru începători)
+
+1. Descarcă și instalează Thonny de la https://thonny.org/
+
+2. Conectează Pico W la USB ținând apăsat butonul BOOTSEL
+
+3. În Thonny, mergi la **Tools → Options → Interpreter**:
+   - Selectează "MicroPython (Raspberry Pi Pico)"
+   - Click pe "Install or update MicroPython"
+   - Selectează Pico-ul tău și instalează ultima versiune
+   - Click OK
+
+4. Creează fișierul de configurare WiFi:
+   - În Thonny, mergi la **File → New**
+   - Lipește acest conținut (editează cu datele tale WiFi):
+     ```json
+     {
+         "wifi_ssid": "NumeleReteleiTale",
+         "wifi_password": "ParolaTa"
+     }
+     ```
+   - Mergi la **File → Save as...**
+   - Selectează "Raspberry Pi Pico" în dialog
+   - Salvează ca `settings.json`
+
+5. Încarcă toate fișierele firmware:
+   - Deschide fiecare fișier `.py` din acest proiect în Thonny
+   - Pentru fiecare fișier: **File → Save as...** → Selectează "Raspberry Pi Pico" → Salvează cu același nume
+   - Încarcă aceste fișiere: `settings.py`, `motors.py`, `position.py`, `controller.py`, `rotctld.py`, `webserver.py`, `main.py`
+
+6. Resetează Pico (deconectează și reconectează USB). Vezi adresa IP în panoul Shell din Thonny.
+
+### Opțiunea 2: Folosind mpremote (Linux/macOS/Windows linie de comandă)
+
 1. Instalează MicroPython pe Pico W (dacă nu este deja instalat):
    - Descarcă de la https://micropython.org/download/RPI_PICO_W/
    - Ține apăsat butonul BOOTSEL în timp ce conectezi USB
@@ -47,7 +81,7 @@ Controller pentru rotor de antenă satelit cu Raspberry Pi Pico W, cu suport pen
 
 2. Copiază toate fișierele `.py` pe Pico:
    ```bash
-   # Folosind mpremote (pip install mpremote)
+   # Instalează mpremote întâi: pip install mpremote
    mpremote cp settings.py motors.py position.py controller.py rotctld.py webserver.py main.py :
    ```
 
