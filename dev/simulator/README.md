@@ -23,25 +23,45 @@ pip install rich
 From the project root directory:
 
 ```bash
-# Run with default settings
+# First, create a settings.json with a non-privileged port (port 80 requires root)
+cat > settings.json << 'EOF'
+{
+    "wifi_ssid": "SimulatedWiFi",
+    "wifi_password": "simulator",
+    "web_port": 8080
+}
+EOF
+
+# Run the simulator
 python dev/simulator/run.py
 
-# Start at different position
+# Or with options
 python dev/simulator/run.py --start-az=90 --start-el=30
-
-# Run 5x faster for quick testing
 python dev/simulator/run.py --speed-mult=5
-
-# Headless mode (no terminal display)
 python dev/simulator/run.py --no-display
 ```
 
+## Configuration
+
+The simulator uses the same `settings.json` file as the real firmware. Create this file in the project root before running:
+
+```json
+{
+    "wifi_ssid": "YourNetworkName",
+    "wifi_password": "YourPassword",
+    "web_port": 8080,
+    "rotctl_port": 4533
+}
+```
+
+**Note:** Use a port above 1024 (e.g., 8080) to avoid needing root privileges. The simulator's WiFi mock always succeeds instantly regardless of credentials.
+
 ## Accessing the Simulated System
 
-Once running:
+Once running (assuming `web_port: 8080`):
 
-- **Web Interface:** http://127.0.0.1:80/
-- **Settings Page:** http://127.0.0.1:80/settings
+- **Web Interface:** http://127.0.0.1:8080/
+- **Settings Page:** http://127.0.0.1:8080/settings
 - **rotctld Protocol:** Port 4533
 
 Test with netcat:
@@ -115,18 +135,27 @@ dev/simulator/
 **"Rich library not available"**
 ```bash
 pip install rich
+# Or on Debian/Ubuntu:
+sudo apt install python3-rich
 ```
 Or run with `--no-display` for headless mode.
 
-**Port 80 requires root**
+**Port requires root / Permission denied**
 
-On Linux, binding to port 80 requires elevated privileges. Either:
-- Run with sudo: `sudo python dev/simulator/run.py`
-- Or modify firmware's `settings.json` to use port 8080
+Ports below 1024 require root privileges. Set `web_port` to 8080 or higher in `settings.json`:
+```json
+{"web_port": 8080}
+```
 
 **Address already in use**
 
-Another process is using port 80 or 4533. Either stop that process or modify the ports in `settings.json`.
+Another process is using the port. Kill it or change the port:
+```bash
+# Find and kill process on port 4533
+fuser -k 4533/tcp
+
+# Or change ports in settings.json
+```
 
 ## Limitations
 

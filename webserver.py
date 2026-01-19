@@ -408,19 +408,19 @@ HTML_SETTINGS = """<!DOCTYPE html>
                 <div class="panel-title">🌐 Network</div>
                 <div class="setting-row">
                     <label class="setting-label">WiFi SSID</label>
-                    <input type="text" class="setting-input" name="wifi_ssid" id="wifi_ssid">
+                    <input type="text" class="setting-input" name="wifi_ssid" id="wifi_ssid" value="YOUR_WIFI_SSID">
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">WiFi Password</label>
-                    <input type="password" class="setting-input" name="wifi_password" id="wifi_password">
+                    <input type="password" class="setting-input" name="wifi_password" id="wifi_password" value="YOUR_WIFI_PASSWORD">
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Web Port</label>
-                    <input type="number" class="setting-input" name="web_port" id="web_port" min="1" max="65535">
+                    <input type="number" class="setting-input" name="web_port" id="web_port" min="1" max="65535" value="80">
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Rotctld Port</label>
-                    <input type="number" class="setting-input" name="rotctl_port" id="rotctl_port" min="1" max="65535">
+                    <input type="number" class="setting-input" name="rotctl_port" id="rotctl_port" min="1" max="65535" value="4533">
                     <span class="setting-unit">(default: 4533)</span>
                 </div>
             </div>
@@ -429,32 +429,32 @@ HTML_SETTINGS = """<!DOCTYPE html>
                 <div class="panel-title">🔌 GPIO Pins</div>
                 <div class="setting-row">
                     <label class="setting-label">Azimuth Motor A</label>
-                    <input type="number" class="setting-input" name="az_pin_a" id="az_pin_a" min="0" max="28">
+                    <input type="number" class="setting-input" name="az_pin_a" id="az_pin_a" min="0" max="28" value="2">
                     <span class="setting-unit">GP</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Azimuth Motor B</label>
-                    <input type="number" class="setting-input" name="az_pin_b" id="az_pin_b" min="0" max="28">
+                    <input type="number" class="setting-input" name="az_pin_b" id="az_pin_b" min="0" max="28" value="3">
                     <span class="setting-unit">GP</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Elevation Motor A</label>
-                    <input type="number" class="setting-input" name="el_pin_a" id="el_pin_a" min="0" max="28">
+                    <input type="number" class="setting-input" name="el_pin_a" id="el_pin_a" min="0" max="28" value="4">
                     <span class="setting-unit">GP</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Elevation Motor B</label>
-                    <input type="number" class="setting-input" name="el_pin_b" id="el_pin_b" min="0" max="28">
+                    <input type="number" class="setting-input" name="el_pin_b" id="el_pin_b" min="0" max="28" value="5">
                     <span class="setting-unit">GP</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Azimuth ADC</label>
-                    <input type="number" class="setting-input" name="az_adc_pin" id="az_adc_pin" min="26" max="28">
+                    <input type="number" class="setting-input" name="az_adc_pin" id="az_adc_pin" min="26" max="28" value="26">
                     <span class="setting-unit">GP (26-28)</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Elevation ADC</label>
-                    <input type="number" class="setting-input" name="el_adc_pin" id="el_adc_pin" min="26" max="28">
+                    <input type="number" class="setting-input" name="el_adc_pin" id="el_adc_pin" min="26" max="28" value="27">
                     <span class="setting-unit">GP (26-28)</span>
                 </div>
             </div>
@@ -467,26 +467,26 @@ HTML_SETTINGS = """<!DOCTYPE html>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Voltage at Min</label>
-                    <input type="number" class="setting-input" name="az_v_min" id="az_v_min" step="0.01" min="0" max="3.3">
+                    <input type="number" class="setting-input" name="az_v_min" id="az_v_min" step="0.01" min="0" max="3.3" value="0.54">
                     <span class="setting-unit">V</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Voltage at Max</label>
-                    <input type="number" class="setting-input" name="az_v_max" id="az_v_max" step="0.01" min="0" max="3.3">
+                    <input type="number" class="setting-input" name="az_v_max" id="az_v_max" step="0.01" min="0" max="3.3" value="2.32">
                     <span class="setting-unit">V</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Min Degrees</label>
-                    <input type="number" class="setting-input" name="az_deg_min" id="az_deg_min" step="0.1">
+                    <input type="number" class="setting-input" name="az_deg_min" id="az_deg_min" step="0.1" value="0">
                     <span class="setting-unit">°</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Max Degrees</label>
-                    <input type="number" class="setting-input" name="az_deg_max" id="az_deg_max" step="0.1">
+                    <input type="number" class="setting-input" name="az_deg_max" id="az_deg_max" step="0.1" value="360">
                     <span class="setting-unit">°</span>
                 </div>
             </div>
-            
+
             <div class="settings-panel">
                 <div class="panel-title">📏 Calibration - Elevation</div>
                 <div class="setting-row">
@@ -495,22 +495,22 @@ HTML_SETTINGS = """<!DOCTYPE html>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Voltage at Min</label>
-                    <input type="number" class="setting-input" name="el_v_min" id="el_v_min" step="0.01" min="0" max="3.3">
+                    <input type="number" class="setting-input" name="el_v_min" id="el_v_min" step="0.01" min="0" max="3.3" value="0.53">
                     <span class="setting-unit">V</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Voltage at Max</label>
-                    <input type="number" class="setting-input" name="el_v_max" id="el_v_max" step="0.01" min="0" max="3.3">
+                    <input type="number" class="setting-input" name="el_v_max" id="el_v_max" step="0.01" min="0" max="3.3" value="0.98">
                     <span class="setting-unit">V</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Min Degrees</label>
-                    <input type="number" class="setting-input" name="el_deg_min" id="el_deg_min" step="0.1">
+                    <input type="number" class="setting-input" name="el_deg_min" id="el_deg_min" step="0.1" value="0">
                     <span class="setting-unit">°</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Max Degrees</label>
-                    <input type="number" class="setting-input" name="el_deg_max" id="el_deg_max" step="0.1">
+                    <input type="number" class="setting-input" name="el_deg_max" id="el_deg_max" step="0.1" value="90">
                     <span class="setting-unit">°</span>
                 </div>
                 <div class="calibration-help">
@@ -527,27 +527,27 @@ HTML_SETTINGS = """<!DOCTYPE html>
                 <div class="panel-title">⚡ Motor Control</div>
                 <div class="setting-row">
                     <label class="setting-label">PWM Frequency</label>
-                    <input type="number" class="setting-input" name="pwm_freq" id="pwm_freq" min="100" max="20000">
+                    <input type="number" class="setting-input" name="pwm_freq" id="pwm_freq" min="100" max="20000" value="1000">
                     <span class="setting-unit">Hz</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Fast Speed</label>
-                    <input type="number" class="setting-input" name="pwm_fast" id="pwm_fast" min="0" max="65535">
+                    <input type="number" class="setting-input" name="pwm_fast" id="pwm_fast" min="0" max="65535" value="65535">
                     <span class="setting-unit">(0-65535)</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Slow Speed</label>
-                    <input type="number" class="setting-input" name="pwm_slow" id="pwm_slow" min="0" max="65535">
+                    <input type="number" class="setting-input" name="pwm_slow" id="pwm_slow" min="0" max="65535" value="32768">
                     <span class="setting-unit">(precision)</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Minimum Speed</label>
-                    <input type="number" class="setting-input" name="pwm_min" id="pwm_min" min="0" max="65535">
+                    <input type="number" class="setting-input" name="pwm_min" id="pwm_min" min="0" max="65535" value="19660">
                     <span class="setting-unit">(stall threshold)</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">ADC Reference</label>
-                    <input type="number" class="setting-input" name="adc_vref" id="adc_vref" step="0.01" min="0" max="5">
+                    <input type="number" class="setting-input" name="adc_vref" id="adc_vref" step="0.01" min="0" max="5" value="3.3">
                     <span class="setting-unit">V</span>
                 </div>
             </div>
@@ -556,17 +556,17 @@ HTML_SETTINGS = """<!DOCTYPE html>
                 <div class="panel-title">🎯 Positioning</div>
                 <div class="setting-row">
                     <label class="setting-label">Tolerance</label>
-                    <input type="number" class="setting-input" name="tolerance" id="tolerance" step="0.1" min="0.1" max="10">
+                    <input type="number" class="setting-input" name="tolerance" id="tolerance" step="0.1" min="0.1" max="10" value="1.0">
                     <span class="setting-unit">° (stop accuracy)</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Slow Threshold</label>
-                    <input type="number" class="setting-input" name="slow_threshold" id="slow_threshold" step="0.1" min="1" max="30">
+                    <input type="number" class="setting-input" name="slow_threshold" id="slow_threshold" step="0.1" min="1" max="30" value="5.0">
                     <span class="setting-unit">° (switch to slow)</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Update Interval</label>
-                    <input type="number" class="setting-input" name="position_update_ms" id="position_update_ms" min="10" max="500">
+                    <input type="number" class="setting-input" name="position_update_ms" id="position_update_ms" min="10" max="500" value="50">
                     <span class="setting-unit">ms</span>
                 </div>
             </div>
@@ -575,32 +575,32 @@ HTML_SETTINGS = """<!DOCTYPE html>
                 <div class="panel-title">🔒 Limits & Park</div>
                 <div class="setting-row">
                     <label class="setting-label">Az Min Limit</label>
-                    <input type="number" class="setting-input" name="az_limit_min" id="az_limit_min" step="0.1">
+                    <input type="number" class="setting-input" name="az_limit_min" id="az_limit_min" step="0.1" value="0">
                     <span class="setting-unit">°</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Az Max Limit</label>
-                    <input type="number" class="setting-input" name="az_limit_max" id="az_limit_max" step="0.1">
+                    <input type="number" class="setting-input" name="az_limit_max" id="az_limit_max" step="0.1" value="360">
                     <span class="setting-unit">°</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">El Min Limit</label>
-                    <input type="number" class="setting-input" name="el_limit_min" id="el_limit_min" step="0.1">
+                    <input type="number" class="setting-input" name="el_limit_min" id="el_limit_min" step="0.1" value="0">
                     <span class="setting-unit">°</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">El Max Limit</label>
-                    <input type="number" class="setting-input" name="el_limit_max" id="el_limit_max" step="0.1">
+                    <input type="number" class="setting-input" name="el_limit_max" id="el_limit_max" step="0.1" value="90">
                     <span class="setting-unit">°</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Park Azimuth</label>
-                    <input type="number" class="setting-input" name="park_az" id="park_az" step="0.1">
+                    <input type="number" class="setting-input" name="park_az" id="park_az" step="0.1" value="0">
                     <span class="setting-unit">°</span>
                 </div>
                 <div class="setting-row">
                     <label class="setting-label">Park Elevation</label>
-                    <input type="number" class="setting-input" name="park_el" id="park_el" step="0.1">
+                    <input type="number" class="setting-input" name="park_el" id="park_el" step="0.1" value="0">
                     <span class="setting-unit">°</span>
                 </div>
             </div>

@@ -48,22 +48,33 @@ Controller pentru rotor de antenă satelit cu Raspberry Pi Pico W, cu suport pen
 2. Copiază toate fișierele `.py` pe Pico:
    ```bash
    # Folosind mpremote (pip install mpremote)
-   mpremote cp settings.py :
-   mpremote cp motors.py :
-   mpremote cp position.py :
-   mpremote cp controller.py :
-   mpremote cp rotctld.py :
-   mpremote cp webserver.py :
-   mpremote cp main.py :
+   mpremote cp settings.py motors.py position.py controller.py rotctld.py webserver.py main.py :
    ```
 
-3. Resetează Pico. La prima pornire:
-   - Dacă nu este configurat WiFi, creează AP-ul "PicoRotor-Setup" (parolă: rotorsetup)
-   - Conectează-te la această rețea și accesează http://192.168.4.1/settings
-   - Configurează credențialele WiFi și alte setări
-   - Click pe Save, apoi Reboot
+3. Configurează credențialele WiFi folosind **una** din aceste metode:
 
-4. Pico se va conecta acum la WiFi-ul tău și va afișa IP-ul în consola serială.
+   **Opțiunea A: Pre-configurare înainte de deploy (recomandat)**
+
+   Creează un fișier `settings.json` cu credențialele tale WiFi:
+   ```bash
+   cat > settings.json << 'EOF'
+   {
+       "wifi_ssid": "NumeleReteleiTale",
+       "wifi_password": "ParolaTa"
+   }
+   EOF
+   mpremote cp settings.json :
+   ```
+   Pico se va conecta automat la WiFi la pornire.
+
+   **Opțiunea B: Configurare prin mod AP**
+
+   Dacă nu există `settings.json` sau conexiunea WiFi eșuează:
+   - Pico creează AP-ul "PicoRotor-Setup" (parolă: rotorsetup)
+   - Conectează-te la această rețea și accesează http://192.168.4.1/settings
+   - Introdu credențialele WiFi și click pe Save, apoi Reboot
+
+4. Pico se va conecta la WiFi-ul tău și va afișa IP-ul în consola serială.
 
 ## Setări Web
 

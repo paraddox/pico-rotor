@@ -48,22 +48,33 @@ Satellite antenna rotor controller for Raspberry Pi Pico W with dual-axis (azimu
 2. Copy all `.py` files to the Pico:
    ```bash
    # Using mpremote (pip install mpremote)
-   mpremote cp settings.py :
-   mpremote cp motors.py :
-   mpremote cp position.py :
-   mpremote cp controller.py :
-   mpremote cp rotctld.py :
-   mpremote cp webserver.py :
-   mpremote cp main.py :
+   mpremote cp settings.py motors.py position.py controller.py rotctld.py webserver.py main.py :
    ```
 
-3. Reset the Pico. On first boot:
-   - If no WiFi configured, it creates AP "PicoRotor-Setup" (password: rotorsetup)
-   - Connect to this network and visit http://192.168.4.1/settings
-   - Configure your WiFi credentials and other settings
-   - Click Save, then Reboot
+3. Configure WiFi credentials using **one** of these methods:
 
-4. The Pico will now connect to your WiFi and show its IP in the serial console.
+   **Option A: Pre-configure before deploy (recommended)**
+
+   Create a `settings.json` file with your WiFi credentials:
+   ```bash
+   cat > settings.json << 'EOF'
+   {
+       "wifi_ssid": "YourNetworkName",
+       "wifi_password": "YourPassword"
+   }
+   EOF
+   mpremote cp settings.json :
+   ```
+   The Pico will connect to your WiFi automatically on boot.
+
+   **Option B: Configure via AP mode**
+
+   If no `settings.json` exists or WiFi connection fails:
+   - The Pico creates AP "PicoRotor-Setup" (password: rotorsetup)
+   - Connect to this network and visit http://192.168.4.1/settings
+   - Enter your WiFi credentials and click Save, then Reboot
+
+4. The Pico will connect to your WiFi and show its IP in the serial console.
 
 ## Web Settings
 
