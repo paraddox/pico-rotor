@@ -1,0 +1,5 @@
+# Pico Rotor Simulator Dependencies
+# ==================================
+
+# Rich terminal display library (optional but recommended)
+rich>=13.0.0

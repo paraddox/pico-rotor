@@ -246,6 +246,18 @@ pico-rotor/
 | `/api/settings/reset` | POST | Reset to defaults |
 | `/api/reboot` | POST | Reboot controller |
 
+## Development
+
+A Linux simulator is available for testing the firmware without hardware. See [`dev/simulator/README.md`](dev/simulator/README.md) for full documentation.
+
+Quick start:
+```bash
+pip install rich
+python dev/simulator/run.py
+```
+
+Then access the web interface at http://127.0.0.1/ and test rotctld at port 4533.
+
 ## License
 
 MIT License - Use freely for amateur radio applications.
